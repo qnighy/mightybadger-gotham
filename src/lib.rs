@@ -1,4 +1,4 @@
-use futures::{Future, Poll};
+use futures01::{Future, Poll};
 use gotham::handler::HandlerFuture;
 use gotham::middleware::Middleware;
 use gotham::state::{FromState, State};
