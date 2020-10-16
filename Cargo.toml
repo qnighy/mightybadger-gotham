@@ -21,4 +21,4 @@ mightybadger = { git = "https://github.com/qnighy/mightybadger-rs.git", rev = "f
 
 [dev-dependencies]
 mime = "0.3.7"
-tokio = "0.1.9"
+tokio = "0.3.0"
