@@ -13,12 +13,13 @@ categories = ["web-programming", "api-bindings", "development-tools"]
 license = "MIT"
 
 [dependencies]
-futures01 = "0.1.27"
-hyper = { version = "0.12.7", default-features = false }
-gotham = "0.4.0"
-gotham_derive = "0.4.0"
+pin-project = "1.0.1"
+http = "0.2.1"
+gotham = "0.5.0"
+gotham_derive = "0.5.0"
 mightybadger = { git = "https://github.com/qnighy/mightybadger-rs.git", rev = "98a67e7" }
 
 [dev-dependencies]
-mime = "0.3.7"
-tokio = "0.1.9"
+mime = "0.3.15"
+tokio = { version = "0.2.22", default-features = false, features = ["time"] }
+hyper = { version = "0.13.9", default-features = false }

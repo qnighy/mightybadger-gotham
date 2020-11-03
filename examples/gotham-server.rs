@@ -5,10 +5,11 @@ use gotham::pipeline::single::single_pipeline;
 use gotham::router::builder::*;
 use gotham::router::Router;
 use gotham::state::State;
-use hyper::{Body, Response, StatusCode};
-use std::time::{Duration, Instant};
-use tokio::prelude::*;
-use tokio::timer::Delay;
+use http::{Response, StatusCode};
+use hyper::Body;
+use std::pin::Pin;
+use std::time::Duration;
+use tokio::time::delay_for;
 
 fn router() -> Router {
     let (chain, pipelines) = single_pipeline(
@@ -42,12 +43,11 @@ fn error(_state: State) -> (State, Response<Body>) {
     panic!("/error is requested");
 }
 
-fn error_wait(_state: State) -> Box<HandlerFuture> {
-    let at = Instant::now() + Duration::from_millis(1000);
-    let f = Delay::new(at)
-        .map_err(|_| panic!("Timer error"))
-        .map(|_| panic!("/error_wait is requested"));
-    Box::new(f)
+fn error_wait(_state: State) -> Pin<Box<HandlerFuture>> {
+    Box::pin(async {
+        delay_for(Duration::from_millis(1000)).await;
+        panic!("/error_wait is requested");
+    })
 }
 
 fn main() {
