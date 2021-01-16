@@ -1,0 +1,18 @@
+version: 2
+updates:
+- package-ecosystem: cargo
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  reviewers:
+  - qnighy
+  ignore:
+  - dependency-name: hyper
+    versions:
+    - ">= 0.13.a"
+    - "< 0.14"
+  - dependency-name: tokio
+    versions:
+    - ">= 0.2.a"
+    - "< 0.3"
