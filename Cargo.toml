@@ -16,10 +16,10 @@ license = "MIT"
 pin-project = "1.0.1"
 http = "0.2.1"
 gotham = "0.6.0"
-gotham_derive = "0.5.0"
+gotham_derive = "0.6.0"
 mightybadger = { git = "https://github.com/qnighy/mightybadger-rs.git", rev = "36157ad" }
 
 [dev-dependencies]
 mime = "0.3.15"
-tokio = { version = "0.2.22", default-features = false, features = ["time"] }
-hyper = { version = "0.13.9", default-features = false }
+tokio = { version = "1.0", default-features = false, features = ["time"] }
+hyper = { version = "0.14.0", default-features = false }

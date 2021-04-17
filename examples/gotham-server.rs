@@ -9,7 +9,7 @@ use http::{Response, StatusCode};
 use hyper::Body;
 use std::pin::Pin;
 use std::time::Duration;
-use tokio::time::delay_for;
+use tokio::time::sleep;
 
 fn router() -> Router {
     let (chain, pipelines) = single_pipeline(
@@ -45,7 +45,7 @@ fn error(_state: State) -> (State, Response<Body>) {
 
 fn error_wait(_state: State) -> Pin<Box<HandlerFuture>> {
     Box::pin(async {
-        delay_for(Duration::from_millis(1000)).await;
+        sleep(Duration::from_millis(1000)).await;
         panic!("/error_wait is requested");
     })
 }
