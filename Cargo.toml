@@ -16,7 +16,7 @@ license = "MIT"
 pin-project = "1.0.1"
 http = "0.2.1"
 gotham = "0.6.0"
-gotham_derive = "0.6.0"
+gotham_derive = "0.7.0"
 mightybadger = { git = "https://github.com/qnighy/mightybadger-rs.git", rev = "36157ad" }
 
 [dev-dependencies]
